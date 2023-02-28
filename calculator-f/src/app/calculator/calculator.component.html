@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="container-cal">
+    <div>
+      <input type="text" value="{{input}}" readonly>
+    </div>
+    <div>
+      <input type="text" value="{{result}}" class="result" readonly>
+    </div>
+    <div class="row">
+      <div class="col-2">
+        <span *ngFor="let key of keys">
+          <span *ngIf="key.name==='='">
+            <button type="button" class="btn-n" (click)="getAnswer()">{{key.name}}</button>
+          </span>
+          <span *ngIf="key.name !== '=' ">
+            <button type="button" class="btn-n" (click)="pressNum(key.name)">{{key.name}}</button>
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1>Memory</h1>
+    <div *ngIf="yummyMemory.length>0">
+        <span style="display: flex;position: relative; left: 180%;" (click)="clearHistoryMem()">
+          <i class="fa fa-trash-o" style="font-size:48px;color:red"></i>
+        </span>
+      <div>{{yummyMemory}}</div>
+    </div>
+    <div *ngIf="yummyMemory.length===0">There's nothing saved in memory</div>
+  </div>
+
+  <!--  <div>-->
+  <!--    <h1>Memory</h1>-->
+  <!--    -->
+  <!--      <div *ngIf="arrMess.length>0">-->
+  <!--        <span style="display: flex;position: relative; left: 200%;" (click)="clearHistoryMem()">-->
+  <!--          <i class="fa fa-trash-o" style="font-size:48px;color:red"></i>-->
+  <!--        </span>-->
+  <!--        <div *ngFor="let arr of arrMess">{{arr}}</div>-->
+  <!--      </div>-->
+  <!--      <div *ngIf="arrMess.length===0">There's nothing saved in memory</div>-->
+  <!--  </div>-->
+</div>
+
+
+<!--<div class="container">-->
+<!--  <div>-->
+<!--    <input type="text" value="{{input}}" readonly>-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <input type="text" class="result" value="{{result}}" readonly>-->
+<!--  </div>-->
+<!--    <div class="row" >-->
+<!--      <div class="col-2">-->
+<!--        <button type="button" class="btn-n">No</button>-->
+<!--        <button type="button" class="btn-n" (click)="allClear()">CE</button>-->
+<!--        <button type="button" class="btn-n" (click)="clear()">C</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('/')">/</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-2">-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('7')">7</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('8')">8</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('9')">9</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('*')">x</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-2">-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('4')">4</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('5')">5</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('6')">6</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('-')">-</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-2">-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('1')">1</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('2')">2</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('3')">3</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('+')">+</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="row">-->
+<!--      <div class="col-2">-->
+<!--        <button type="button" class="btn-n">+/-</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('0')">0</button>-->
+<!--        <button type="button" class="btn-n" (click)="pressNum('.')">.</button>-->
+<!--        <button type="button" class="btn-n" (click)="getAnswer()">=</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--</div>-->
